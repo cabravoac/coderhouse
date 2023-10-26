@@ -113,6 +113,7 @@ console.log(datosClima)
 
         if (datosClima.cod != "404") {
 
+            
             console.log(datosClima)
 
             Swal.fire({
