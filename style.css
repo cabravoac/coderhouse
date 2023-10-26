@@ -1,20 +1,3 @@
-h1 { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 2em; }
-h2 { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 1.6em;}
-h3 { font-family: 'Lato', sans-serif; font-weight: 700; font-size: 1.2em;}
-
-
-
-p,label {     
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    font-size: 1.2em;
-    margin: 10px 0px; 
-} 
-
-body {
-    margin: 0;
-}
-
 .main {
     background-color: #22485A;
     height: 100vh;
@@ -29,32 +12,208 @@ body {
 }
 
 
-
-
-
 body {
     background: #fff;
+    margin: 0;
   }
+
+.modalBox {
+  background-color: #bdbdbd52;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 25px;
+  padding: 40px 40px;
+  box-shadow: 0px 5px 5px #0000002b;
+}
+.modalBox h1 {
+  font-family: 'Lato', sans-serif; font-weight: 900; font-size: 2em;
+}
+.modalBox h2 {
+  font-family: 'Lato', sans-serif; font-weight: 900; font-size: 1.6em;
+}
+.modalBox h3 {
+  font-family: 'Lato', sans-serif; font-weight: 700; font-size: 1.4em;
+}
+.modalBox p, label{
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  margin: 5px 0px; 
+}
+
+.swal2-title { 
+  font-family: 'Lato', sans-serif; font-weight: 400; font-size: 1.6em; line-height: 1.4em;
+}
+div:where(.swal2-icon).swal2-info.swal2-icon-show .swal2-icon-content, div:where(.swal2-icon).swal2-info.swal2-icon-show {
+  color: #FFA987;
+  border-color: #FFA987;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+  background-color: #25aae1 !important;
+}
+
+input[type=text] {
+	appearance: none;
+  text-align: center;
+	border: none;
+  font-family: 'Lato', sans-serif; font-weight: 900; font-size: 1.4em;
+	outline: none;
+	border-bottom: .1em solid #A5D0A8;
+	background: transparent;
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+	color: #A5D0A8;
+}
+
+.table {
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  margin: 40px 0px; 
+  transform: scaleY(0);
+  transition: 300ms ease-in;
+  display: none;
+  width: auto !important;
+}
+
+.tableON {
+  transform: scaleY(1);
+  display: block;
+  width: auto;
+}
+
+
+
+
+.bn632-hover {
+  width: 70%;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 0px;
+  height: 55px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 15px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.bn632-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.bn632-hover:focus {
+  outline: none;
+}
+
+.bn632-hover.bn26 {
+  background-image: linear-gradient(
+    to right,
+    #25aae1,
+    #4481eb,
+    #04befe,
+    #3f86ed
+  );
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+
+
+
+
+/* 
+========================
+      BUTTON ONE
+========================
+*/
+.btn-one {
+  color: #FFF;
+  transition: all 0.3s;
+  position: relative;
+  font-family: 'Lato', sans-serif; font-weight: 900; font-size: 1.2em !important;;
+
+}
+.btn-one span {
+  transition: all 0.3s;
+}
+.btn-one::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgba(255,255,255,0.5);
+  border-bottom-color: rgba(255,255,255,0.5);
+  transform: scale(0.1, 1);
+}
+.btn-one:hover span {
+  letter-spacing: 2px;
+}
+.btn-one:hover::before {
+  opacity: 1; 
+  transform: scale(1, 1); 
+}
+.btn-one::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(255,255,255,0.1);
+}
+.btn-one:hover::after {
+  opacity: 0; 
+  transform: scale(0.1, 1);
+}
+
+
+
+
+  
 
   .stage {
     position: relative;
     width: 100%;
     height: auto;
-    margin: 0% 0% 5% 0%;
+    margin: 0% 0% 3% 0%;
+    display: flex;
+    justify-content: center;
   }
-  
   svg {
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
     margin: 24px 0 0 40px;
     fill: #fff;
+    transition: 200ms;
   }
-  
+  svg:hover {
+    fill: #FFA987;
+  }
   /* Thunder Bolt Animation */
   .thunder-cloud .bolt {
     animation: flash 2s infinite;
   }
-  
   @keyframes flash {
     0% {
       transform: translateY(-25px) translateX(25px) scaleY(0.95);
@@ -91,17 +250,14 @@ body {
   .rain-cloud .raindrop-one {
     animation: falling-drop-one 2s infinite;
   }
-  
   .rain-cloud .raindrop-two {
     animation: falling-drop-two 1.90s infinite;
     animation-delay: 0.8s;
   }
-  
   .rain-cloud .raindrop-three {
     animation: falling-drop-three 1.80s infinite;
     animation-delay: 0.5s;
   }
-  
   @keyframes falling-drop-one {
     0% {
       transform: translateY(-35px);
@@ -123,7 +279,6 @@ body {
       opacity: 0;
     }
   }
-  
   @keyframes falling-drop-two {
     0% {
       transform: translateY(-105px);
@@ -145,7 +300,6 @@ body {
       opacity: 0;
     }
   }
-  
   @keyframes falling-drop-three {
     0% {
       transform: translateY(-105px);
@@ -176,21 +330,17 @@ body {
     transform-origin: center center;
     animation-timing-function: ease-in;
   }
-  
   .snow-cloud .snowflake-one {
     animation: falling-snow-one 4s infinite;
   }
-  
   .snow-cloud .snowflake-two {
     animation: falling-snow-two 3.8s infinite;
     animation-delay: 2.5s;
   }
-  
   .snow-cloud .snowflake-three {
     animation: falling-snow-three 3.9s infinite;
     animation-delay: 1.5s;
   }
-  
   @keyframes falling-snow-one {
     0% {
       transform: translateY(-65px) rotate(0);
@@ -215,7 +365,6 @@ body {
       opacity: 0;
     }
   }
-  
   @keyframes falling-snow-two {
     0% {
       transform: translateY(-75px) rotate(0);
@@ -240,7 +389,6 @@ body {
       opacity: 0;
     }
   }
-  
   @keyframes falling-snow-three {
     0% {
       transform: translateY(-85px) rotate(0);
@@ -265,13 +413,11 @@ body {
       opacity: 0;
     }
   }
-  
   /* Sunny Cloud Animations */
   .sun-cloud .sun-half {
     animation: sun-grow 4s infinite cubic-bezier(0.2, 0.85, 0.4, 1.5);
     transform-origin: bottom center;
   }
-  
   .sun-cloud .ray-one {
     animation: ray-show-one 4s infinite linear;
     transform-origin: center right;
@@ -303,7 +449,6 @@ body {
       opacity: 1;
     }
   }
-  
   @keyframes ray-show-one {
     0%, 15%, 80%, 100% {
       transform: scale(0.5);
@@ -314,7 +459,6 @@ body {
       opacity: 1;
     }
   }
-  
   @keyframes ray-show-two {
     0%, 20%, 80%, 100% {
       transform: scale(0.5);
@@ -325,7 +469,6 @@ body {
       opacity: 1;
     }
   }
-  
   @keyframes ray-show-three {
     0%, 25%, 80%, 100% {
       transform: scale(0.5);
@@ -336,7 +479,6 @@ body {
       opacity: 1;
     }
   }
-  
   @keyframes ray-show-four {
     0%, 30%, 80%, 100% {
       transform: scale(0.5);
@@ -347,7 +489,6 @@ body {
       opacity: 1;
     }
   }
-  
   @keyframes ray-show-five {
     0%, 35%, 80%, 100% {
       transform: scale(0.5);
@@ -358,7 +499,6 @@ body {
       opacity: 1;
     }
   }
-  
   @keyframes ray-show-six {
     0%, 40%, 80%, 100% {
       transform: scale(0.5);
@@ -369,7 +509,6 @@ body {
       opacity: 1;
     }
   }
-  
   @keyframes ray-show-seven {
     0%, 45%, 80%, 100% {
       transform: scale(0.5);
@@ -380,7 +519,6 @@ body {
       opacity: 1;
     }
   }
-  
   @keyframes ray-show-eight {
     0%, 50%, 80%, 100% {
       transform: scale(0.5);
@@ -391,54 +529,44 @@ body {
       opacity: 1;
     }
   }
-  
   /* Sunshine Animation */
   /* If only using this animation be sure to grab the sun-grow and ray-show-x keyframes set above */
   .sunshine .sun-full {
     animation: sun-grow 4s infinite cubic-bezier(0.2, 0.85, 0.4, 1.5);
     transform-origin: center center;
   }
-  
   .sunshine .sun-ray-one {
     animation: ray-show-one 4s infinite ease-in;
     transform-origin: center right;
   }
-  
   .sunshine .sun-ray-two {
     animation: ray-show-two 4s infinite ease-in;
     transform-origin: bottom right;
   }
-  
   .sunshine .sun-ray-three {
     animation: ray-show-three 4s infinite ease-in;
     transform-origin: bottom center;
   }
-  
   .sunshine .sun-ray-four {
     animation: ray-show-four 4s infinite ease-in;
     transform-origin: bottom left;
   }
-  
   .sunshine .sun-ray-five {
     animation: ray-show-five 4s infinite ease-in;
     transform-origin: center left;
   }
-  
   .sunshine .sun-ray-six {
     animation: ray-show-six 4s infinite ease-in;
     transform-origin: top left;
   }
-  
   .sunshine .sun-ray-seven {
     animation: ray-show-seven 4s infinite ease-in;
     transform-origin: top center;
   }
-  
   .sunshine .sun-ray-eight {
     animation: ray-show-eight 4s infinite ease-in;
     transform-origin: top right;
   }
-  
   /* Windy Cloud Animation */
   .windy-cloud .cloud-wrap {
     animation: bob 2s infinite cubic-bezier(0,0,.5,1.5);
@@ -456,7 +584,6 @@ body {
   .windy-cloud .wind-three {
     animation: wind-slide-three 4s infinite;
   }
-  
   @keyframes bob {
     0%, 100% {
       transform: translateY(10px);
@@ -465,7 +592,6 @@ body {
       transform: translateY(-10px);
     }
   }
-  
   @keyframes cloud-push {
     0%, 80%, 100% {
       transform: translateX(-120px) scale(1.2);
@@ -474,7 +600,6 @@ body {
       transform: translateX(0) scale(1);
     }
   }
-  
   @keyframes wind-slide-one {
     0%, 70%, 100% {
       transform: scaleX(0);
@@ -485,7 +610,6 @@ body {
       opacity: 1;
     }
   }
-  
   @keyframes wind-slide-two {
     0%, 70%, 100% {
       transform: scaleX(0);
@@ -496,7 +620,6 @@ body {
       opacity: 1;
     }
   }
-  
   @keyframes wind-slide-three {
     0%, 70%, 100% {
       transform: scaleX(0);
@@ -507,3 +630,20 @@ body {
       opacity: 1;
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

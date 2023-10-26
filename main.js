@@ -1,3 +1,55 @@
+const mostrarConsultas = () => {
+    const busquedaClima = JSON.parse(localStorage.getItem("busquedaClima")) || []
+    const historial = document.getElementById("historialConsulta")
+
+    busquedaClima.forEach(element => {
+        const tr = document.createElement("tr")
+        tr.innerHTML = `<th>${element.ciudad}</th>
+                        <th>${element.temp} ºC</th>
+                        <th>${element.fecha}</th>`
+        historial.append(tr)
+    })
+
+}
+
+function show() {
+    const buttonElement = document.querySelector('.showConsultas');    
+    const textElement = document.querySelector('.showConsultas span');    
+
+    const showTabla = document.querySelector('.table');
+
+    buttonElement.addEventListener('click', () => {
+        showTabla.classList.add('tableON');
+        textElement.innerHTML = `Ocultar historial de consultas`
+        const resultado = textElement.innerHTML
+        hide(resultado);
+
+    });    
+    
+}
+
+function hide(resultado) {
+
+    if(resultado = true) {
+
+        const buttonElement = document.querySelector('.showConsultas');    
+        const textElement = document.querySelector('.showConsultas span');    
+    
+        const showTabla = document.querySelector('.table');
+    
+
+        buttonElement.addEventListener('click', () => {
+            showTabla.classList.remove('tableON');
+            textElement.innerHTML = `Ver historial de consultas`
+
+            show(); 
+        });    
+    
+    }
+       
+}
+
+
 function consultaClima() {
     const ciudades = [
         {
@@ -22,6 +74,7 @@ function consultaClima() {
         }
     ];
 
+    /*
     const datosClima = {
         CDMX: {
             temperatura: 20,
@@ -44,25 +97,31 @@ function consultaClima() {
             velocidadViento: 200,
         }
     };
+    */
 
-
-    const nombreInput = document.getElementById('nombreInput');
     const ciudadInput = document.getElementById('ciudadInput');
     const buttonElement = document.querySelector('.action');    
+    const busquedaClima = JSON.parse(localStorage.getItem("busquedaClima")) || []
 
  
-    buttonElement.addEventListener('click', () => {
-        let nombreUsuario = nombreInput.value.toUpperCase();
-        let abreviaturaIngresada = ciudadInput.value.toUpperCase();
+    buttonElement.addEventListener('click', async () => {
+        const nombreCiudad = ciudadInput.value.toUpperCase();
+        const response = await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${nombreCiudad}&appid=5f1280cf69ab9a9a13a3461bea4cb795&units=metric&lang=es`)
+        const datosClima = await response.json()
+        
+console.log(datosClima)
 
-        if (abreviaturaIngresada in datosClima) {
-            const ciudad = ciudades.find(ciudad => ciudad.abreviatura === abreviaturaIngresada);
-            const clima = datosClima[abreviaturaIngresada];
+        if (datosClima.cod != "404") {
 
-    
+            console.log(datosClima)
+
             Swal.fire({
-                title: '<strong></strong>',
                 icon: 'info',
+
+                title: `<strong>${nombreCiudad}</strong><br>
+                Temperatura: ${datosClima.main.temp}ºC
+                Humedad: ${datosClima.main.humidity}%
+                Viento a: ${datosClima.wind.speed} km/h`,
                 showCloseButton: true,
                 showCancelButton: false,
                 focusConfirm: false,
@@ -70,17 +129,15 @@ function consultaClima() {
                   '<i class="fa fa-thumbs-up"></i>Consultar otra ciudad',
                 confirmButtonAriaLabel: 'Consultar otra ciudad',
               })
-
-              insertarDatosClima(nombreUsuario, ciudad, clima);
-
-
-            console.log("ciudad");
-            console.log("clima");
+              busquedaClima.push(({ciudad:datosClima.name,
+                temp:datosClima.main.temp, 
+                fecha:new Date().toLocaleDateString()}
+                ))
+              localStorage.setItem("busquedaClima", JSON.stringify(busquedaClima))
 
         } else {
-
             Swal.fire({
-                title: '<strong>La abreviatura de la ciudad ingresada no es válida. Por favor, ingresa una de las siguientes opciones: CDMX, BRU, TK, VAN, CHI.</strong>',
+                title: `La ciudad ingresada no existe`,
                 icon: 'error',
                 showCloseButton: true,
                 showCancelButton: false,
@@ -89,18 +146,23 @@ function consultaClima() {
                   '<i class="fa fa-thumbs-up"></i>Intentar de nuevo',
                 confirmButtonAriaLabel: 'Intentar de nuevo',
               })
-
-            insertarDatosClima(nombreUsuario, ciudad, clima);        
-
         }
     });
     
 }
 
+function mayus(e) {
+    e.value = e.value.toUpperCase();
+}
+
 consultaClima();
+mostrarConsultas();
+show();
+mayus(e);
 
 
 
+/*
 function insertarDatosClima(nombreUsuario, ciudad, clima) {
     const contenedorDatos = document.getElementById("swal2-title")
     const tarjetaDatos = document.createElement("strong")
@@ -108,3 +170,4 @@ function insertarDatosClima(nombreUsuario, ciudad, clima) {
     contenedorDatos.append(tarjetaDatos)
     console.log(contenedorDatos)
 }
+*/
